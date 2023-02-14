@@ -19,6 +19,8 @@ export const Classes = ({ classDisplayType }: { classDisplayType: ClassDisplayTy
   const reachedCapacity =
     studentListData.filter((student) => student.pick_up_vehicle === registrationInput).length >= capacity;
 
+  // First get list of all associated students
+  // Then determine if 'has_left_class' field is true for all associated students, by chaining && operator
   const allAssociatedStudentsPickedUp = vehicleListData
     .filter((vehicle) => vehicle.registration === registrationInput)[0]
     ?.associated_students.reduce((currentValue, student_id) => {
